@@ -1,4 +1,5 @@
-<?php
+/*
+php
 // error_log ( $conversation_id );
 $accessToken = getenv ( 'LINE_CHANNEL_ACCESS_TOKEN' );
 // ユーザーからのメッセージ取得
@@ -149,32 +150,7 @@ if ($type != "text") {
 	error_log ( 183 );
 	error_log ( $result );
 	error_log ( 185 );
-	// そのまま画像をオウム返しで送信
-	/*
-	 * $response_format_text = [
-	 * "type" => "image",
-	 * "originalContentUrl" => $result,
-	 * "previewImageUrl" => $result
-	 * ];
-	 * $post_data = [
-	 * "replyToken" => $replyToken,
-	 * "messages" => [
-	 * $response_format_text
-	 * ]
-	 * ];
-	 * $ch = curl_init ( "https://api.line.me/v2/bot/message/reply" );
-	 * curl_setopt ( $ch, CURLOPT_POST, true );
-	 * curl_setopt ( $ch, CURLOPT_CUSTOMREQUEST, 'POST' );
-	 * curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, true );
-	 * curl_setopt ( $ch, CURLOPT_POSTFIELDS, json_encode ( $post_data ) );
-	 * curl_setopt ( $ch, CURLOPT_HTTPHEADER, array (
-	 * 'Content-Type: application/json; charser=UTF-8',
-	 * 'Authorization: Bearer ' . $accessToken
-	 * ) );
-	 * $result = curl_exec ( $ch );
-	 * curl_close ( $ch );
-	 */
-	// $url = "https://" . $_SERVER ['SERVER_NAME'] . "/lion.jpg";
+
 	$url = "https://gateway-a.watsonplatform.net/visual-recognition/api/v3/classify?api_key=c24e26752cbdd81008614ff2379f39be5dc9b629&version=2016-05-20";
 	$jsonString = callVisual_recognition ();
 	$json = json_decode ( $jsonString, true );
@@ -222,27 +198,7 @@ $data = array (
 				"text" => $text
 		)
 );
-/*
- * $data["context"] = array("conversation_id" => "",
- * "system" => array("dialog_stack" => array(array("dialog_node" => "")),
- * "dialog_turn_counter" => 1,
- * "dialog_request_counter" => 1));
- *
- * $curl = curl_init($url);
- *
- * $options = array(
- * CURLOPT_HTTPHEADER => array(
- * 'Content-Type: application/json',
- * ),
- * CURLOPT_USERPWD => $username . ':' . $password,
- * CURLOPT_POST => true,
- * CURLOPT_POSTFIELDS => json_encode($data),
- * CURLOPT_RETURNTRANSFER => true,
- * );
- *
- * curl_setopt_array($curl, $options);
- * $jsonString = curl_exec($curl);
- */
+
 $jsonString = callWatson ();
 $json = json_decode ( $jsonString, true );
 $conversation_id = $json ["context"] ["conversation_id"];
@@ -293,21 +249,7 @@ error_log ( 314 );
 error_log ( "dialog_node" );
 // データベースの切断
 pg_close ( $conn );
-/*
- * $curl = curl_init($url);
- * $options = array(
- * CURLOPT_HTTPHEADER => array(
- * 'Content-Type: application/json',
- * ),
- * CURLOPT_USERPWD => $username . ':' . $password,
- * CURLOPT_POST => true,
- * CURLOPT_POSTFIELDS => json_encode($data),
- * CURLOPT_RETURNTRANSFER => true,
- * );
- *
- * curl_setopt_array($curl, $options);
- * $jsonString = curl_exec($curl);
- */
+
 $jsonString = callWatson ();
 // error_log($jsonString);
 $json = json_decode ( $jsonString, true );
@@ -464,17 +406,7 @@ if (! $rows [userid] == null) {
 }
 // データベースの切断
 pg_close ( $conn );
-/*
- * $conversationData = array (
- * 'conversation_id' => $conversationId,
- * 'dialog_node' => $dialogNode
- * );
- * setLastConversationData ( $event->getUserId (), $conversationData );
- *
- * $outputText = $json ['output'] ['text'] [count ( $json ['output'] ['text'] ) - 1];
- *
- * replyTextMessage ( $bot, $event->getReplyToken (), $outputText );
- */
+
 function callWatson() {
 	global $curl, $url, $username, $password, $data, $options;
 	$curl = curl_init ( $url );
@@ -501,3 +433,4 @@ function callVisual_recognition() {
 	curl_setopt_array ( $curl, $options );
 	return curl_exec ( $curl );
 }
+*/
