@@ -16,6 +16,14 @@ Route::get ( '/', function () {
 	Route::get ( '/hello_world/index', 'HelloWorldController@getIndex' );
 	Route::get ( '/hello_world/login', 'HelloWorldController@getLogin' );
 
+/*
+	Route::get('apis/{callback}',function(){
+
+		return "old style";
+
+	})->where('callback','.+\.php');
+*/
+
 	Auth::routes();
 
-	Route::get('/home', 'HomeController@index')->name('home');
+	Route::get ('/home', 'HomeController@index')->name('home');
