@@ -1,5 +1,5 @@
-/*
-php
+<?php
+
 // error_log ( $conversation_id );
 $accessToken = getenv ( 'LINE_CHANNEL_ACCESS_TOKEN' );
 // ユーザーからのメッセージ取得
@@ -433,4 +433,3 @@ function callVisual_recognition() {
 	curl_setopt_array ( $curl, $options );
 	return curl_exec ( $curl );
 }
-*/
