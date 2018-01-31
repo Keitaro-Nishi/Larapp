@@ -22,13 +22,13 @@ $userID = $jsonObj->{"events"} [0]->{"source"}->{"userId"};
 $replyToken = $json_object->{"events"}[0]->{"replyToken"};        //返信用トークン
 $message_type = $json_object->{"events"}[0]->{"message"}->{"type"};    //メッセージタイプ
 $message_text = $json_object->{"events"}[0]->{"message"}->{"text"};    //メッセージ内容
- 
+
 //メッセージタイプが「text」以外のときは何も返さず終了
 if($message_type != "text") exit;
- 
+
 //返信メッセージ
-$return_message_text = "「" . $message_text . "」じゃねーよｗｗｗ";
- 
+$return_message_text = $message_text . "」じゃねーよｗｗｗ";
+
 //返信実行
 sending_messages($accessToken, $replyToken, $message_type, $return_message_text);
 ?>
@@ -40,13 +40,13 @@ function sending_messages($accessToken, $replyToken, $message_type, $return_mess
         "type" => $message_type,
         "text" => $return_message_text
     ];
- 
+
     //ポストデータ
     $post_data = [
         "replyToken" => $replyToken,
         "messages" => [$response_format_text]
     ];
- 
+
     //curl実行
     $ch = curl_init("https://api.line.me/v2/bot/message/reply");
     curl_setopt($ch, CURLOPT_POST, true);
