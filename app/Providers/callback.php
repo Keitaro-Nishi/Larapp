@@ -1,10 +1,21 @@
 <?php
- 
-$accessToken = 'ここに「Channel Access Token」をコピペする';
- 
-//ユーザーからのメッセージ取得
-$json_string = file_get_contents('php://input');
-$json_object = json_decode($json_string);
+ // error_log ( $conversation_id );
+$accessToken = getenv ( 'LINE_CHANNEL_ACCESS_TOKEN' );
+// ユーザーからのメッセージ取得
+$json_string = file_get_contents ( 'php://input' );
+$json_object = json_decode ( $json_string );
+$type = $jsonObj->{"events"} [0]->{"message"}->{"type"};
+$eventType = $jsonObj->{"events"} [0]->{"type"};
+// メッセージ取得
+$text = $jsonObj->{"events"} [0]->{"message"}->{"text"};
+// 画像取得
+$image = $jsonObj->{"events"} [0]->{"message"}->{"image"};
+// ReplyToken取得
+$replyToken = $jsonObj->{"events"} [0]->{"replyToken"};
+// messageIdを取得
+$messageId = $jsonObj->{"events"} [0]->{"message"}->{"id"};
+// ユーザーID取得
+$userID = $jsonObj->{"events"} [0]->{"source"}->{"userId"};
  
 //取得データ
 $replyToken = $json_object->{"events"}[0]->{"replyToken"};        //返信用トークン
