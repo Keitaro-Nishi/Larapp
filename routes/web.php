@@ -14,7 +14,6 @@ Route::get ( '/', function () {
 	return view ( 'welcome' );
 } );
 	Route::get ( '/hello_world/index', 'HelloWorldController@getIndex' );
-	Route::get ( '/hello_world/login', 'HelloWorldController@getLogin' );
 
 	Auth::routes();
 
