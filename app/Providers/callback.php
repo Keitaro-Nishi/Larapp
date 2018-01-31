@@ -4,6 +4,7 @@ $accessToken = getenv ( 'LINE_CHANNEL_ACCESS_TOKEN' );
 // ユーザーからのメッセージ取得
 $json_string = file_get_contents ( 'php://input' );
 $json_object = json_decode ( $json_string );
+/*
 $type = $jsonObj->{"events"} [0]->{"message"}->{"type"};
 $eventType = $jsonObj->{"events"} [0]->{"type"};
 // メッセージ取得
@@ -16,7 +17,7 @@ $replyToken = $jsonObj->{"events"} [0]->{"replyToken"};
 $messageId = $jsonObj->{"events"} [0]->{"message"}->{"id"};
 // ユーザーID取得
 $userID = $jsonObj->{"events"} [0]->{"source"}->{"userId"};
- 
+ */
 //取得データ
 $replyToken = $json_object->{"events"}[0]->{"replyToken"};        //返信用トークン
 $message_type = $json_object->{"events"}[0]->{"message"}->{"type"};    //メッセージタイプ
