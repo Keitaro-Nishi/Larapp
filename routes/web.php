@@ -18,7 +18,3 @@ Route::get ( '/', function () {
 	Auth::routes();
 
 	Route::get ('/home', 'HomeController@index')->name('home');
-
-	Route::group(['namespace' => 'Api'], function () {
-		Route::post('/callback')->name('line.callback');
-	});
