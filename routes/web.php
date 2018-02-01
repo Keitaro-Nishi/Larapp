@@ -20,5 +20,5 @@ Route::get ( '/', function () {
 	Route::get ('/home', 'HomeController@index')->name('home');
 
 	Route::group(['namespace' => 'Api'], function () {
-		Route::post('/line/callback')->name('line.callback');
+		Route::post('/callback')->name('line.callback');
 	});
