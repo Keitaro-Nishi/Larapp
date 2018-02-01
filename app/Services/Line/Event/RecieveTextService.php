@@ -3,7 +3,6 @@
 
 namespace App\Services\Line\Event;
 use LINE\LINEBot;
-use DB;
 use LINE\LINEBot\Event\MessageEvent\TextMessage;
 class RecieveTextService
 {
