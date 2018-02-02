@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\Line\Event\RecieveLocationService;
-use App\Services\Line\Event\RecieveTextService;
-use App\Services\Line\Event\FollowService;
+use app\Services\Line\Event\RecieveLocationService;
+use app\Services\Line\Event\RecieveTextService;
+use app\Services\Line\Event\FollowService;
 use Illuminate\Http\Request;
 use LINE\LINEBot;
 

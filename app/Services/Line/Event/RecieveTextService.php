@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Services\Line\Event;
+namespace app\Services\Line\Event;
 use LINE\LINEBot;
 use LINE\LINEBot\Event\MessageEvent\TextMessage;
 class RecieveTextService
