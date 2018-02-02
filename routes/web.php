@@ -18,3 +18,5 @@ Route::get ( '/hello_world/index', 'HelloWorldController@getIndex' );
 Auth::routes ();
 
 Route::get ( '/home', 'HomeController@index' )->name ( 'home' );
+
+Route::post ( '/callback', 'LineBotController@callback' )->name ( 'callback' );
