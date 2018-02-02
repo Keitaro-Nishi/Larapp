@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace app\Http\Controllers;
 
 use app\Services\Line\Event\RecieveLocationService;
 use app\Services\Line\Event\RecieveTextService;
